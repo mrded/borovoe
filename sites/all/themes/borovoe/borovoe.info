@@ -1,0 +1,6 @@
+name = Borovoe
+description = ''
+
+base theme = bootstrap
+core = 7.x
+version = "7.x"
