@@ -54,7 +54,10 @@ function bootstrap_theme(&$existing, $type, $theme, $path) {
         'attributes' => array(),
         'type' => NULL
       ),
-    ), 
+    ),
+    'bootstrap_search_form_wrapper' => array(
+      'render element' => 'element',
+    ),
   );
 }
 
@@ -139,8 +142,6 @@ function bootstrap_preprocess_page(&$variables) {
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
   }
 
-  // Replace tabs with drop down version
-  $variables['tabs']['#primary'] = _bootstrap_local_tasks($variables['tabs']['#primary']);
 }
 
 /**
@@ -280,3 +281,19 @@ function _bootstrap_content_span($columns = 1) {
   
   return $class;
 }
+
+/**
+ * Adds the search form's submit button right after the input element.
+ *
+ * @ingroup themable
+ */
+function bootstrap_bootstrap_search_form_wrapper(&$variables) {
+  $output = '<div class="input-append">';
+  $output .= $variables['element']['#children'];
+  $output .= '<button type="submit" class="btn">';
+  $output .= '<i class="icon-search"></i>';
+  $output .= '<span class="element-invisible">' . t('Search') . '</span>';
+  $output .= '</button>';
+  $output .= '</div>';
+  return $output;
+ }
