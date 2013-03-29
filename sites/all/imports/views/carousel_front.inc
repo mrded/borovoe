@@ -2,7 +2,7 @@
 $view = new view();
 $view->name = 'carousel_front';
 $view->description = '';
-$view->tag = 'default';
+$view->tag = 'views_import';
 $view->base_table = 'node';
 $view->human_name = 'carousel_front';
 $view->core = 7;
@@ -29,6 +29,8 @@ $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['label'] = '';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
 /* Field: Content: Pict */
 $handler->display->display_options['fields']['field_pict']['id'] = 'field_pict';
 $handler->display->display_options['fields']['field_pict']['table'] = 'field_data_field_pict';
