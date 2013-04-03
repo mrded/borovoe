@@ -25,7 +25,7 @@ if (theme_get_setting('bootstrap_rebuild_registry') && !defined('MAINTENANCE_MOD
 }
 
 /**
- * hook_theme() 
+ * Implements hook_theme().
  */
 function bootstrap_theme(&$existing, $type, $theme, $path) {
   // If we are auto-rebuilding the theme registry, warn about the feature.
@@ -53,6 +53,20 @@ function bootstrap_theme(&$existing, $type, $theme, $path) {
         'links' => array(),
         'attributes' => array(),
         'type' => NULL
+      ),
+    ),
+    'bootstrap_modal' => array(
+      'variables' => array(
+        'heading' => '',
+        'body' => '',
+        'footer' => '',
+        'attributes' => array(),
+      ),
+    ),
+    'bootstrap_accordion' => array(
+      'variables' => array(
+        'id' => '',
+        'elements' => array(),
       ),
     ),
     'bootstrap_search_form_wrapper' => array(

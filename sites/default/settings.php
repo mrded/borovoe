@@ -218,7 +218,7 @@ if (!isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
       array (
         'database' => 'borovoe',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'host' => 'localhost',
         'port' => '',
         'driver' => 'mysql',

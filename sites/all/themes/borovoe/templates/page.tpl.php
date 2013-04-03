@@ -13,6 +13,9 @@
         <?php if (!empty($primary_nav)): ?>
           <?php print render($primary_nav); ?>
         <?php endif; ?>
+        <p style="text-align: center;"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="160" HEIGHT="148" id="loader" ALIGN=""> <PARAM NAME=movie VALUE="http://rp5.kz/informer/group/1/19.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=scale VALUE=noscale> <PARAM NAME=salign VALUE=LT> <PARAM NAME=wmode VALUE=transparent> <PARAM NAME=bgcolor VALUE=#FFFFFF> <PARAM NAME=flashvars VALUE="points=141414,10146,9505&lang=ru&um=00000"><EMBED src="http://rp5.kz/informer/group/1/19.swf" quality=high scale=noscale salign=LT wmode=transparent bgcolor=#FFFFFF  WIDTH="160" HEIGHT="148" NAME="loader" flashvars="points=141414,10146,9505&lang=ru&um=00000" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED></OBJECT></p>
+        <p style="text-align: center;"><a href="http://kazfin.info/" title="Курсы валют"><img alt="Ежедневные курсы валют в Республике Казахстан" src="http://kazfin.info/informer/default.png"> </a></p>
+        <p style="text-align: center;"><a href="http://www.borovoe.kz/index.php?option=com_banners&task=click&bid=24"><img src="http://habrastorage.org/storage2/def/485/ae7/def485ae741ccd21ecb22805cd13ebcd.gif"/></a>
         <!--Sidebar content-->
       </div>
       <div class="span8">
