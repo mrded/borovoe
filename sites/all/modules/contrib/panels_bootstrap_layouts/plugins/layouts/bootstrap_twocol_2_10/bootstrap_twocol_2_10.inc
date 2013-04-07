@@ -5,8 +5,8 @@
  */
 // Plugin definition
 $plugin = array(
-  'title' => t('Two Column 2-10'),
-  'category' => t('Bootstrap'),
+  'title' => t('2-10'),
+  'category' => t('Bootstrap Two Columns'),
   'icon' => 'bootstrap_twocol_2_10.png',
   'theme' => 'bootstrap_twocol_2_10',
   'admin css' => '../bootstrap_panels_admin.css',

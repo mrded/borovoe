@@ -5,8 +5,8 @@
  */
 // Plugin definition
 $plugin = array(
-  'title' => t('Three column 3-6-3 stacked'),
-  'category' => t('Bootstrap'),
+  'title' => t('3-6-3 stacked'),
+  'category' => t('Bootstrap Three Columns'),
   'icon' => 'bootstrap_threecol_3_6_3_stacked.png',
   'theme' => 'bootstrap_threecol_3_6_3_stacked',
   'admin css' => '../bootstrap_panels_admin.css',

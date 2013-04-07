@@ -5,8 +5,8 @@
  */
 // Plugin definition
 $plugin = array(
-  'title' => t('Single column'),
-  'category' => t('Bootstrap'),
+  'title' => t('12'),
+  'category' => t('Bootstrap One Column'),
   'icon' => 'bootstrap_onecol.png',
   'theme' => 'bootstrap_onecol',
   'admin css' => '../bootstrap_panels_admin.css',
