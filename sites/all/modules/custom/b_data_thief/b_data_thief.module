@@ -24,6 +24,7 @@ function b_data_thief_useful_telephones_page() {
 
   $rows = array();
 
+$i = 0;
   foreach ($xpath->query('//table[@class="MsoNormalTable"]') as $table) {
     foreach ($table->getElementsByTagName('tr') as $tr) {
       $row = array();
@@ -34,6 +35,8 @@ function b_data_thief_useful_telephones_page() {
       if (count($row) == 4) {
         // Delete first element. It's number
         unset($row[0]);
+        $rows[] = $row;
+      } elseif (count($row) == 1) {
         $rows[] = $row;
       }
     }
