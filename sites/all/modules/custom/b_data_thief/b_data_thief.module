@@ -1,0 +1,46 @@
+<?php
+//-> b_data_thief.module
+
+/**
+ * Implements hook_menu().
+ */
+function b_data_thief_menu() {
+  $items = array();
+
+  $items['useful-telephones'] = array(
+    'title' => t('Нужные телефоны'),
+    'page callback' => 'b_data_thief_useful_telephones_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+function b_data_thief_useful_telephones_page() {
+  $dom = new DOMDocument();
+  $dom->loadHTMLFile('http://borovoe.kz/index.php?option=com_content&view=article&id=89&Itemid=65');
+  $xpath = new DOMXPath($dom);
+
+  $rows = array();
+
+  foreach ($xpath->query('//table[@class="MsoNormalTable"]') as $table) {
+    foreach ($table->getElementsByTagName('tr') as $tr) {
+      $row = array();
+      foreach ($tr->getElementsByTagName('td') as $td) {
+        $row[] = trim($td->nodeValue);
+      }
+
+      if (count($row) == 4) {
+        // Delete first element. It's number
+        unset($row[0]);
+        $rows[] = $row;
+      }
+    }
+  }
+
+  // Delete empty rows.
+  array_filter($rows);
+
+  return theme('table', array('rows' => $rows));
+}
