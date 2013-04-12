@@ -24,7 +24,6 @@ function b_data_thief_useful_telephones_page() {
 
   $rows = array();
 
-$i = 0;
   foreach ($xpath->query('//table[@class="MsoNormalTable"]') as $table) {
     foreach ($table->getElementsByTagName('tr') as $tr) {
       $row = array();
@@ -32,16 +31,18 @@ $i = 0;
         $row[] = trim($td->nodeValue);
       }
 
-      if (count($row) == 4) {
-        // Delete first element. It's number
-        unset($row[0]);
-        $rows[] = $row;
-      } elseif (count($row) == 1) {
-        $rows[] = $row;
+      switch (count($row)) {
+        case 1:
+          $rows[] = array(array('data' => reset($row), 'colspan' => 3));
+          break;
+        case 4:
+          unset($row[0]);
+          $rows[] = $row;
+          break;
       }
+
     }
   }
-
   // Delete empty rows.
   array_filter($rows);
 
