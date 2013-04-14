@@ -4,9 +4,9 @@ package = Panels
 dependencies[] = panels
 core = 7.x
 version = 7.x-0.1
-; Information added by drupal.org packaging script on 2013-03-16
+; Information added by drupal.org packaging script on 2013-04-08
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "panels_bootstrap_layouts"
-datestamp = "1363465317"
+datestamp = "1365384061"
 

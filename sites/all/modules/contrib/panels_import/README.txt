@@ -9,6 +9,7 @@ INSTALLATION
 2. Create all necessary subfolders for panels:
 	-> sites/all/imports/page_manager/handlers
 	-> sites/all/imports/page_manager/pages
+	-> sites/all/imports/page_manager/pm_existing_page
 	-> sites/all/imports/panels/mini
 	-> sites/all/imports/ctools/ctools_contents
 3. Export the panels you wish to import and paste the export code into separate text files with .inc' extension.
