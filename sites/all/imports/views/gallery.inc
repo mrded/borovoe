@@ -2,7 +2,7 @@
 $view = new view();
 $view->name = 'gallery';
 $view->description = '';
-$view->tag = 'default';
+$view->tag = 'views_import';
 $view->base_table = 'node';
 $view->human_name = 'Gallery';
 $view->core = 7;
@@ -42,7 +42,7 @@ $handler->display->display_options['fields']['field_pict']['label'] = '';
 $handler->display->display_options['fields']['field_pict']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_pict']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_pict']['settings'] = array(
-  'image_style' => 'medium',
+  'image_style' => 'gallery',
   'image_link' => 'content',
 );
 /* Field: Content: Taxonomy */
@@ -79,4 +79,3 @@ $translatables['gallery'] = array(
   t('Asc'),
   t('Desc'),
 );
-
