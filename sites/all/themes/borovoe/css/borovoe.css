@@ -1,0 +1,6 @@
+footer.main {
+  border-top: none !important;
+  background: #000000 url(../images/footer.png) repeat-x top center;
+}
+
+body { background-color: #f8fbee; }

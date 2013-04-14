@@ -8,3 +8,4 @@ version = "7.x"
 stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/bootstrap-responsive.css
 stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/borovoe.css

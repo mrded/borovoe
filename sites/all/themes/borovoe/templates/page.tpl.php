@@ -46,8 +46,8 @@
       </div>
     </div>
   </div>
-
-  <footer class="footer container">
-    <?php print render($page['footer']); ?>
-  </footer>
 </div>
+
+<footer class="footer main">
+  <?php print render($page['footer']); ?>
+</footer>
