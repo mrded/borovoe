@@ -10,64 +10,67 @@
   padding: 0;
 }
 
-.super-style .mountains {
-  position: absolute;
-  padding: 0;
-  top: 0;
-  z-index: 2;
-  display: block;
-  height: 250px;
-  width: 100%;
-  overflow: hidden;
-  background: url('../images/mountains.png') no-repeat;
-}
+.super-style {
+  .mountains {
+    position: absolute;
+    padding: 0;
+    top: 0;
+    z-index: 2;
+    display: block;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    background: url('../images/mountains.png') no-repeat;
+  }
 
-.super-style .mountains.left {
-  left: -72%;
-  right: auto;
-  background-position: right bottom;
-}
+  .mountains.left {
+    left: -72%;
+    right: auto;
+    background-position: right bottom;
+  }
 
-.super-style .mountains.right {
-  right: -72%;
-  left: auto;
-  background-position: left bottom;
-}
+  .mountains.right {
+    right: -72%;
+    left: auto;
+    background-position: left bottom;
+  }
 
-.super-style .clouds {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  display: block;
-  padding: 0 200px;
-  height: 250px;
-  width: 100%;
-  overflow: hidden;
-  background: url('../images/clouds.png') no-repeat;
-}
+  .clouds {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: block;
+    padding: 0 200px;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    background: url('../images/clouds.png') no-repeat;
+  }
 
-.super-style .clouds.left {
-  right: -6%;
-  left: auto;
-  background-position: left bottom;
-}
+  .clouds.left {
+    right: -6%;
+    left: auto;
+    background-position: left bottom;
+  }
 
-.super-style .clouds.right {
-  left: -6%;
-  right: auto;
-  background-position: right bottom;
-}
+  .clouds.right {
+    left: -6%;
+    right: auto;
+    background-position: right bottom;
+  }
 
-/* -------- */
-.super-style .horizon {
-  background: url('../images/horizon.png') repeat-x top center;
-  display: block;
-  height: 33px;
-  width: 100%;
-  min-width: 1000px;
-  position: relative;
-  top: -30px;
-  z-index: 10;
+  /* -------- */
+  .horizon {
+    background: url('../images/horizon.png') repeat-x top center;
+    display: block;
+    height: 33px;
+    width: 100%;
+    min-width: 1000px;
+    position: relative;
+    top: -30px;
+    z-index: 10;
+  }
+
 }
 
 .main-wrapper {
@@ -79,23 +82,25 @@
   z-index: 1;
   margin: 0;
   padding: 0;
-}
 
-.main-wrapper .super-style.middle-wrapper .horizon {
-  top: 0;
-  position: absolute;
-  background: url('../images/horizon.png') repeat-x center -33px;
-  height: 111px;
-  z-index: 10;
-}
+  .super-style.middle-wrapper {
+    .horizon {
+      top: 0;
+      position: absolute;
+      background: url('../images/horizon.png') repeat-x center -33px;
+      height: 111px;
+      z-index: 10;
+    }
 
-.main-wrapper .super-style.middle-wrapper .mountains { background: url('../images/mountains-r.png') no-repeat; }
-.main-wrapper .super-style.middle-wrapper .mountains.left { background-position: right 70px; }
-.main-wrapper .super-style.middle-wrapper .mountains.right { background-position: left 70px; }
+    .mountains { background: url('../images/mountains-r.png') no-repeat; }
+    .mountains.left { background-position: right 70px; }
+    .mountains.right { background-position: left 70px; }
 
-.main-wrapper .super-style.middle-wrapper .clouds {
-  background: url('../images/clouds-r.png') no-repeat;
-  height: 392px;
+    .clouds {
+      background: url('../images/clouds-r.png') no-repeat;
+      height: 392px;
+    }
+    .clouds.left { background-position: left 40px; }
+    .clouds.right { background-position: right 40px; }
+  }
 }
-.main-wrapper .super-style.middle-wrapper .clouds.left { background-position: left 40px; }
-.main-wrapper .super-style.middle-wrapper .clouds.right { background-position: right 40px; }
