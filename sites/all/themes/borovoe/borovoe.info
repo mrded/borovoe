@@ -5,8 +5,6 @@ base theme = bootstrap
 core = 7.x
 version = "7.x"
 
-dependencies[] = less
-
 stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/bootstrap-responsive.css
 stylesheets[all][] = css/font-awesome.css
