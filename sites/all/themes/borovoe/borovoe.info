@@ -10,5 +10,4 @@ dependencies[] = less
 stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/bootstrap-responsive.css
 stylesheets[all][] = css/font-awesome.css
-stylesheets[all][] = css/borovoe.css
-stylesheets[all][] = css/super-style.css.less
+stylesheets[all][] = css/borovoe.css.less

@@ -1,3 +1,8 @@
+body {
+  padding-top: 0;
+  background-color: #bbdad5;
+}
+
 .super-style.header-wrapper {
   display: block;
   height: 250px;
@@ -59,7 +64,7 @@
     background-position: right bottom;
   }
 
-  /* -------- */
+/* -------- */
   .horizon {
     background: url('../images/horizon.png') repeat-x top center;
     display: block;
@@ -82,6 +87,8 @@
   z-index: 1;
   margin: 0;
   padding: 0;
+
+  .main-container { position: relative; z-index: 100; }
 
   .super-style.middle-wrapper {
     .horizon {
