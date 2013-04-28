@@ -8,4 +8,6 @@ sites/*/private
 .DS_Store
 .vagrant
 public/
+.idea
 
+*.swp
