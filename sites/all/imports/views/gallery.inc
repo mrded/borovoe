@@ -42,7 +42,7 @@ $handler->display->display_options['fields']['field_pict']['label'] = '';
 $handler->display->display_options['fields']['field_pict']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_pict']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_pict']['settings'] = array(
-  'image_style' => 'gallery',
+  'image_style' => 'medium',
   'image_link' => 'content',
 );
 /* Field: Content: Taxonomy */
