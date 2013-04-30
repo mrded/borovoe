@@ -30,18 +30,18 @@ body {
     width: 100%;
     overflow: hidden;
     background: url('../images/mountains.png') no-repeat;
-  }
 
-  .mountains.left {
-    left: -72%;
-    right: auto;
-    background-position: right bottom;
-  }
+    &.left {
+      left: -72%;
+      right: auto;
+      background-position: right bottom;
+    }
 
-  .mountains.right {
-    right: -72%;
-    left: auto;
-    background-position: left bottom;
+    &.right {
+      right: -72%;
+      left: auto;
+      background-position: left bottom;
+    }
   }
 
   .clouds {
@@ -54,18 +54,18 @@ body {
     width: 100%;
     overflow: hidden;
     background: url('../images/clouds.png') no-repeat;
-  }
 
-  .clouds.left {
-    right: -6%;
-    left: auto;
-    background-position: left bottom;
-  }
+    &.left {
+      right: -6%;
+      left: auto;
+      background-position: left bottom;
+    }
 
-  .clouds.right {
-    left: -6%;
-    right: auto;
-    background-position: right bottom;
+    &.right {
+      left: -6%;
+      right: auto;
+      background-position: right bottom;
+    }
   }
 
   .horizon {
@@ -107,15 +107,21 @@ body {
       z-index: 10;
     }
 
-    .mountains { background: url('../images/mountains-r.png') no-repeat; }
-    .mountains.left { background-position: right 70px; }
-    .mountains.right { background-position: left 70px; }
+    .mountains {
+      background: url('../images/mountains-r.png') no-repeat;
+      height: 150px;
+
+      &.left { background-position: right 70px; }
+      &.right { background-position: left 70px; }
+    }
+
 
     .clouds {
       background: url('../images/clouds-r.png') no-repeat;
       height: 392px;
+
+      &.left { background-position: left 40px; }
+      &.right { background-position: right 40px; }
     }
-    .clouds.left { background-position: left 40px; }
-    .clouds.right { background-position: right 40px; }
   }
 }
