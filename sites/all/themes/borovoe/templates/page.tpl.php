@@ -5,13 +5,11 @@
   <div class="clouds right"></div>
 
   <div class="page-header">
-    <h1>Боровое <small>Subtext for header</small></h1>
+    <h1><a href="<?php print $front_page; ?>" class="site-name"><?php print $site_name; ?>Боровое</a> <small>Жемчужина Казахстана</small></h1>
   </div>
 </div>
 
 <div class="super-style"><div class="horizon"></div></div>
-
-
 
 <div class="main-wrapper">
   <div class="main-container container">
