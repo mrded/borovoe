@@ -1,4 +1,4 @@
-<div class="super-style header-wrapper">
+<div id='header-wrapper'>
   <div class="mountains left"></div>
   <div class="mountains right"></div>
   <div class="clouds left"></div>
@@ -8,8 +8,7 @@
     <h1><a href="<?php print $front_page; ?>" class="site-name"><?php print $site_name; ?>Боровое</a> <small>Жемчужина Казахстана</small></h1>
   </div>
 </div>
-
-<div class="super-style"><div class="horizon"></div></div>
+<div class="horizon"></div>
 
 <div id="main-wrapper">
   <div id="menu-wrapper" class="row-fluid">
