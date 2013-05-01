@@ -11,22 +11,21 @@
 
 <div class="super-style"><div class="horizon"></div></div>
 
-<div class="main-wrapper">
-  <div class="main-container container">
-
-    <div class="row-fluid">
-      <div class="span5">
-        <?php if (!empty($title)): ?>
-          <h3 class="page-title"><?php print $title; ?></h3>
-        <?php endif; ?>
-      </div>
-      <div class="span7">
-        <?php if (!empty($primary_nav)): ?>
-          <?php print render($primary_nav); ?>
-        <?php endif; ?>
-      </div>
+<div id="main-wrapper">
+  <div id="menu-wrapper" class="row-fluid">
+    <div class="span5">
+      <?php if (!empty($title)): ?>
+        <h3 class="page-title"><?php print $title; ?></h3>
+      <?php endif; ?>
     </div>
+    <div class="span7">
+      <?php if (!empty($primary_nav)): ?>
+        <?php print render($primary_nav); ?>
+      <?php endif; ?>
+    </div>
+  </div>
 
+  <div class="main-container container">
     <?php print $messages; ?>
 
     <?php if (!empty($tabs)): ?>
@@ -42,13 +41,5 @@
     <?php endif; ?>
 
     <?php print render($page['content']); ?>
-  </div>
-
-  <div class="super-style middle-wrapper">
-    <div class="horizon"></div>
-    <div class="mountains left"></div>
-    <div class="mountains right"></div>
-    <div class="clouds left"></div>
-    <div class="clouds right"></div>
   </div>
 </div>

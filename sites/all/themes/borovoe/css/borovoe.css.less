@@ -80,7 +80,18 @@ body {
   }
 }
 
-.main-wrapper {
+#menu-wrapper {
+  background: url('../images/horizon.png') repeat-x center -33px;
+  width: 100%;
+  padding-top: 10px;
+
+  .page-title {
+    margin-top: 0;
+    margin-left: 60px;
+  }
+}
+
+#main-wrapper {
   position: relative;
   display: block;
   background: url('../images/section-BG.jpg') no-repeat center top;
@@ -90,43 +101,15 @@ body {
   margin: 0;
   padding: 0 0 3%;
 
+  min-height: 390px;
+
   .main-container {
     position: relative;
-    top: 30px;
-    height: 330px;
     z-index: 100;
   }
 
   .nav-tabs {margin-bottom: 0;}
-
   .nav-tabs > li > a { background-color: #EEEEEE;}
   .nav-tabs > li > a.active { background-color: #F5F5F5; }
   .nav-tabs > li > a:hover { background-color: #FFF; }
-
-  .super-style.middle-wrapper {
-    .horizon {
-      top: 0;
-      position: absolute;
-      background: url('../images/horizon.png') repeat-x center -33px;
-      height: 111px;
-      z-index: 10;
-    }
-
-    .mountains {
-      background: url('../images/mountains-r.png') no-repeat;
-      height: 150px;
-
-      &.left { background-position: right 70px; }
-      &.right { background-position: left 70px; }
-    }
-
-
-    .clouds {
-      background: url('../images/clouds-r.png') no-repeat;
-      height: 392px;
-
-      &.left { background-position: left 40px; }
-      &.right { background-position: right 40px; }
-    }
-  }
 }
