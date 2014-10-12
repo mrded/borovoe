@@ -167,17 +167,13 @@
                           <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                               <td valign="top" class="textContent">
-                                <p align="center"><small>Copyright © borovoe.me, All rights reserved.</small></p>
-
-                                <?php if ($recipient): ?>
-                                  <p align="center">
-                                    <small>
-                                      <?php print t('Вы получили это письмо, потому что зарегистрированы на сайте !site', array(
-                                        '!site' => l('borovoe.me', "/", array('absolute' => TRUE))
-                                      )) ?>
-                                    </small>
-                                  </p>
-                                <?php endif ?>
+                                <p align="center">
+                                  <small>
+                                    <?php print t('Вы получили это письмо, потому что зарегистрированы на сайте !site', array(
+                                      '!site' => l('borovoe.me', "/", array('absolute' => TRUE))
+                                    )) ?>
+                                  </small>
+                                </p>
                               </td>
                             </tr>
                           </table>
