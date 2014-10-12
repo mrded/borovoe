@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function forum_stats_menu() {
+  $items = array();
+
+  $items['admin/reports/forum-stats'] = array(
+    'title' => 'Forum Statistics',
+    'page callback' => 'forum_stats_month_page',
+    'access arguments' => array('access site reports'),
+    'file' => 'forum_stats.reports.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/reports/forum-stats/month'] = array(
+    'title' => 'Month',
+    'access arguments' => array('access site reports'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+
+  $items['admin/reports/forum-stats/year'] = array(
+    'title' => 'Year',
+    'page callback' => 'forum_stats_year_page',
+    'access arguments' => array('access site reports'),
+    'file' => 'forum_stats.reports.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  $items['admin/reports/forum-stats/all'] = array(
+    'title' => 'All',
+    'page callback' => 'forum_stats_all_page',
+    'access arguments' => array('access site reports'),
+    'file' => 'forum_stats.reports.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+
+  return $items;
+}
+
+/**
+ * Implement hook_theme().
+ */
+function forum_stats_theme($existing, $type, $theme, $path) {
+  return array(
+    'forum_stats_chart' => array(
+      'variables' => array(
+        'times' => array(),
+        'topics' => array(),
+        'comments' => array(),
+      ),
+    ),
+  );
+}
+
+function theme_forum_stats_chart($vars) {
+  $options = array();
+
+  $options['title']['text'] = t('Forum Statistics');
+  $options['tooltip']['shared'] = TRUE;
+
+  // Additional settings.
+  $options['chart'] = array(
+    'zoomType' => 'xy',
+    'renderTo' => 'forum-stats-chart',
+  );
+
+  $options['xAxis'] = array(
+    'categories' => $vars['times'],
+    'labels' => array(
+      'enabled' => TRUE,
+      'rotation' => -45,
+      'align' => 'right',
+    ),
+  );
+
+  $options['yAxis'] = array(
+    array(
+      'title' => array('text' => t('Comments')),
+      'allowDecimals' => FALSE,
+      'min' => 0,
+    ),
+    array(
+      'title' => array('text' => t('Topics')),
+      'opposite' => TRUE,
+      'allowDecimals' => FALSE,
+      'min' => 0,
+    )
+  );
+
+  $options['legend'] = array(
+    'layout' => 'vertical',
+    'align' => 'left',
+    'verticalAlign' => 'top',
+    'floating' => true,
+    'x' => 120,
+    'y' => 100,
+  );
+
+  $options['series'] = array(
+    array(
+      'name' => t('Topics'),
+      'type' => 'column',
+      'yAxis' => 1,
+      'data' => $vars['topics'],
+    ),
+    array(
+      'name' => t('Comments'),
+      'type' => 'spline',
+      'data' => $vars['comments'],
+    ),
+  );
+
+  drupal_add_js(libraries_get_path('highcharts') .'/js/highcharts.js');
+  drupal_add_js(drupal_get_path('module', 'forum_stats') .'/js/forum-stats-charts.js');
+  drupal_add_js(array('forum_stats_chart' => $options), 'setting');
+
+  return "<div id='" . $options['chart']['renderTo'] . "'></div>";
+}

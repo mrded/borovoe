@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function forum_stats_requirements($phase) {
+  $t = get_t();
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+    $directory = libraries_get_path('highcharts');
+    $highcharts_path = $directory . '/js/highcharts.js';
+
+    if (!is_file($highcharts_path)) {
+      $requirements['forum_stats'] = array(
+        'title' => $t('Forum Stats'),
+        'value' => $t('The library %path does not exist! Please, install !highcharts.', array(
+          '%path' => $highcharts_path,
+          '!highcharts' => l($t('Highcharts'), 'http://www.highcharts.com'),
+        )),
+        'severity' => REQUIREMENT_ERROR,
+      );
+    }
+  }
+
+  return $requirements;
+}

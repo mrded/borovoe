@@ -1,0 +1,14 @@
+name = Forum Stats
+description = Gives you statistic of forum usage.
+core = 7.x
+package = Statistics
+dependencies[] = forum
+dependencies[] = libraries
+configure = admin/reports/forum-stats
+
+; Information added by Drupal.org packaging script on 2014-09-16
+version = "7.x-1.2"
+core = "7.x"
+project = "forum_stats"
+datestamp = "1410863637"
+
