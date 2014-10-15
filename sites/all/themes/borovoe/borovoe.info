@@ -1,3 +1,3 @@
 name = Borovoe
 core = 7.x
-base theme = bartik
+base theme = bootstrap
