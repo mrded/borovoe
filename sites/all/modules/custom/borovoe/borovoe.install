@@ -1,1 +1,33 @@
 <?php
+
+/**
+ * Subscribe users to forum posts.
+ */
+function borovoe_update_7010(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = db_query("SELECT COUNT(DISTINCT nid) FROM {node}  WHERE type='forum'")->fetchField();
+  }
+
+  $nids = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', 'forum')
+    ->range(0, 10)->execute()->fetchCol();
+
+  foreach ($nids as $nid) {
+    $uids = db_select('comment', 'c')
+      ->fields('c', array('uid'))
+      ->condition('c.nid', $nid)
+      ->distinct()->execute()->fetchCol();
+
+    foreach (user_load_multiple($uids) as $user) {
+      subscriptions_write_subscription('node', 'nid', $nid, -1, $user->uid, _subscriptions_get_setting('send_interval', $user), 1, 1);
+    }
+
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  return t('The update did what it was supposed to do.');
+}
