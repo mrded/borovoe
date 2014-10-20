@@ -12,7 +12,7 @@ function borovoe_update_7010(&$sandbox) {
   $nids = db_select('node', 'n')
     ->fields('n', array('nid'))
     ->condition('type', 'forum')
-    ->range(0, 10)->execute()->fetchCol();
+    ->range($sandbox['progress'], 10)->execute()->fetchCol();
 
   foreach ($nids as $nid) {
     $uids = db_select('comment', 'c')
