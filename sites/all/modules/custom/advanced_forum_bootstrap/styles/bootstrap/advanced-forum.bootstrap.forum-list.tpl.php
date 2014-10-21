@@ -26,6 +26,7 @@
  *   commented in.
  * - $forum->forum_image: If used, contains an image to display for the forum.
  *
+ * @see template_preprocess_forums()
  * @see template_preprocess_forum_list()
  * @see theme_forum_list()
  */
@@ -82,15 +83,9 @@
               <tr id="forum-<?php print $item_id; ?>" class="forum-row <?php print $item->zebra; ?> container-<?php print $item_id; ?>-child">
               <?php endif; ?>
 
-              <?php if (!empty($item->forum_image)): ?>
-                <td class="forum-image forum-image-<?php print $item_id; ?>">
-                  <?php print $item->forum_image; ?>
-                </td>
-              <?php else: ?>
-                <td class="<?php print $item->icon_classes ?>">
-                  <span class="forum-list-icon-wrapper"><span><?php print $item->icon_text ?></span></span>
-                </td>
-              <?php endif; ?>
+              <td>
+                <span style="font-size: 1.5em;" class="glyphicon <?php print $item->new_topics ? 'glyphicon-star' : 'glyphicon-star-empty' ?>"></span>
+              </td>
 
               <?php $colspan = ($item->is_container) ? 4 : 1 ?>
               <td class="forum-details" colspan="<?php print $colspan ?>">
