@@ -45,98 +45,99 @@
  */
 ?>
 
+<div class="panel-group">
 <?php foreach ($tables as $table_id => $table): ?>
   <?php $table_info = $table['table_info']; ?>
 
-  <div class="forum-table-wrap">
-    <div class="forum-table-superheader">
-      <div class="forum-table-name">
-        <?php if (empty($table_info->link)): ?>
+  <div class="panel panel-default" id="forum-table-<?php print $table_info->tid ?>">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse-<?php print $table_info->tid ?>">
           <?php print $table_info->name; ?>
-        <?php else: ?>
-          <a href="<?php print $table_info->link; ?>"><?php print $table_info->name; ?></a>
-        <?php endif; ?>
-      </div>
-      <?php if ($collapsible): ?>
-        <span id="forum-collapsible-<?php print $table_info->tid; ?>" class="forum-collapsible" >&nbsp;</span>
-      <?php endif; ?>
-      <div class="forum-table-description"><?php print $table_info->description; ?></div>
+        </a>
+
+        <?php if ($table_info->description): ?>
+          <small><?php print $table_info->description ?></small>
+        <?php endif ?>
+      </h4>
     </div>
 
-    <div id="forum-table-<?php print $table_info->tid; ?>">
+    <div id="collapse-<?php print $table_info->tid ?>" class="panel-collapse collapse in">
+
       <table class="table table-striped">
         <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th><?php print t('Forum'); ?></th>
-            <th><?php print t('Topics'); ?></th>
-            <th><?php print t('Posts'); ?></th>
-            <th><?php print t('Last post'); ?></th>
-          </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <th><?php print t('Forum'); ?></th>
+          <th><?php print t('Topics'); ?></th>
+          <th><?php print t('Posts'); ?></th>
+          <th><?php print t('Last post'); ?></th>
+        </tr>
         </thead>
 
         <tbody id="forum-table-<?php print $table_info->tid; ?>-content">
-          <?php foreach ($table['items'] as $item_id => $item): ?>
+        <?php foreach ($table['items'] as $item_id => $item): ?>
 
-            <?php if ($item->is_container): ?>
-              <tr id="subcontainer-<?php print $item_id; ?>" class="forum-row <?php print $item->zebra; ?> container-<?php print $item_id; ?>-child">
-            <?php else: ?>
-              <tr id="forum-<?php print $item_id; ?>" class="forum-row <?php print $item->zebra; ?> container-<?php print $item_id; ?>-child">
+          <?php if ($item->is_container): ?>
+            <tr id="subcontainer-<?php print $item_id; ?>" class="forum-row <?php print $item->zebra; ?> container-<?php print $item_id; ?>-child">
+          <?php else: ?>
+            <tr id="forum-<?php print $item_id; ?>" class="forum-row <?php print $item->zebra; ?> container-<?php print $item_id; ?>-child">
+          <?php endif; ?>
+
+          <td>
+            <span style="font-size: 1.5em;" class="glyphicon <?php print $item->new_topics ? 'glyphicon-star' : 'glyphicon-star-empty' ?>"></span>
+          </td>
+
+          <td colspan="<?php print $item->is_container ? 4 : 1 ?>">
+            <h4><a href="<?php print $item->link; ?>"><?php print $item->name; ?></a></h4>
+
+            <?php if (!empty($item->description)): ?>
+              <p><?php print $item->description; ?></p>
             <?php endif; ?>
 
-              <td>
-                <span style="font-size: 1.5em;" class="glyphicon <?php print $item->new_topics ? 'glyphicon-star' : 'glyphicon-star-empty' ?>"></span>
-              </td>
+            <?php if (!empty($item->subcontainers)): ?>
+              <p>
+                <small>
+                  <strong><?php print t("Subcontainers") ?>:</strong> <?php print $item->subcontainers; ?>
+                </small>
+              </p>
+            <?php endif; ?>
 
-              <td colspan="<?php print $item->is_container ? 4 : 1 ?>">
-                <h4><a href="<?php print $item->link; ?>"><?php print $item->name; ?></a></h4>
+            <?php if (!empty($item->subforums)): ?>
+              <p>
+                <small>
+                  <strong><?php print t("Subforums") ?>:</strong>  <?php print $item->subforums; ?>
+                </small>
+              </p>
+            <?php endif; ?>
+          </td>
 
-                <?php if (!empty($item->description)): ?>
-                  <p><?php print $item->description; ?></p>
-                <?php endif; ?>
+          <?php if (!$item->is_container): ?>
+            <td>
+              <?php print $item->total_topics ?>
 
-                <?php if (!empty($item->subcontainers)): ?>
-                  <p>
-                    <small>
-                      <strong><?php print t("Subcontainers") ?>:</strong> <?php print $item->subcontainers; ?>
-                    </small>
-                  </p>
-                <?php endif; ?>
-
-                <?php if (!empty($item->subforums)): ?>
-                  <p>
-                    <small>
-                      <strong><?php print t("Subforums") ?>:</strong>  <?php print $item->subforums; ?>
-                    </small>
-                  </p>
-                <?php endif; ?>
-              </td>
-
-              <?php if (!$item->is_container): ?>
-                <td>
-                  <?php print $item->total_topics ?>
-
-                  <?php if ($item->new_topics): ?>
-                    <p><a href="<?php print $item->new_topics_link ?>">+ <?php print $item->new_topics ?></a></strong></p>
-                  <?php endif; ?>
-                </td>
-
-                <td>
-                  <?php print $item->total_posts ?>
-
-                  <?php if ($item->new_posts): ?>
-                    <p><strong><a href="<?php print $item->new_posts_link; ?>">+ <?php print $item->new_posts ?></a></strong></p>
-                  <?php endif; ?>
-                </td>
-
-                <td>
-                  <?php print $item->last_post ?>
-                </td>
+              <?php if ($item->new_topics): ?>
+                <p><a href="<?php print $item->new_topics_link ?>">+ <?php print $item->new_topics ?></a></strong></p>
               <?php endif; ?>
-            </tr>
-          <?php endforeach; ?>
+            </td>
+
+            <td>
+              <?php print $item->total_posts ?>
+
+              <?php if ($item->new_posts): ?>
+                <p><strong><a href="<?php print $item->new_posts_link; ?>">+ <?php print $item->new_posts ?></a></strong></p>
+              <?php endif; ?>
+            </td>
+
+            <td>
+              <?php print $item->last_post ?>
+            </td>
+          <?php endif; ?>
+          </tr>
+        <?php endforeach; ?>
         </tbody>
       </table>
     </div>
   </div>
 <?php endforeach; ?>
+</div>
