@@ -14,6 +14,7 @@
  * @ingroup views_templates
  */
 ?>
+
  <div id="forum-topic-list">
   <?php if (!empty($title)) : ?>
     <caption><?php print $title; ?></caption>
@@ -43,7 +44,7 @@
                <?php print $content; ?>
               </td>
             <?php endforeach; ?>
-          <?php else: ?> 
+          <?php else: ?>
             <?php /* For shadow posts, we print only the icon and themed notice. */ ?>
             <td class="views-field views-field-<?php print $fields['topic_icon']; ?>">
               <?php print $row['topic_icon']; ?>
