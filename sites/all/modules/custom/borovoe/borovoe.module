@@ -1,1 +1,16 @@
 <?php
+
+/**
+ * Implementation of hook_form_FORM_ID_form_alter().
+ */
+function borovoe_form_comment_node_forum_form_alter(&$form, &$form_state) {
+  $form['comment_body']['#after_build'][] = '_borovoe_hide_comment_format';
+}
+
+/**
+ * @see: borovoe_form_comment_node_forum_form_alter().
+ */
+function _borovoe_hide_comment_format($form) {
+  $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE;
+  return $form;
+}
