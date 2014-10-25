@@ -25,46 +25,35 @@
   <?php print $topic_header ?>
 <?php endif; ?>
 
-<div id="<?php print $post_id; ?>" class="<?php print $classes; ?> panel panel-default" <?php print $attributes; ?>>
-  <div class="panel-heading">
-    <span class="pull-right"><?php print $permalink; ?></span>
-    <span class="text-muted"><?php print $date ?></span>
-
-    <?php if (!$top_post): ?>
-      <?php if (!empty($new)): ?>
-        <a id="new"><span class="new">(<?php print $new ?>)</span></a>
-      <?php endif; ?>
-
-      <?php if (!empty($first_new)): ?>
-        <?php print $first_new; ?>
-      <?php endif; ?>
-
-      <?php if (!empty($new_output)): ?>
-        <?php print $new_output; ?>
-      <?php endif; ?>
-    <?php endif; ?>
-
-    <?php if (!empty($in_reply_to)): ?>
-      <span class="forum-in-reply-to"><?php print $in_reply_to; ?></span>
-    <?php endif; ?>
-
-    <?php if (!$node->status): ?>
-      <span class="unpublished-post-note"><?php print t("Unpublished post") ?></span>
-    <?php endif; ?>
-  </div>
-
-  <div class="panel-body">
+<div id="<?php print $post_id; ?>" class="<?php print $classes; ?>" <?php print $attributes; ?>>
+  <div class="well">
     <div class="media">
       <?php if (!empty($author_pane)): ?>
         <div class="pull-left">
-          <?php print $author_pane; ?>
+          <?php print $author_pane ?>
         </div>
       <?php endif; ?>
 
       <div class="media-body">
         <?php if (!empty($title)): ?>
-          <h4 class="media-heading"><?php print $title ?></h4>
+          <h4><?php print $title ?></h4>
+        <?php endif ?>
+
+        <span class="pull-right"><?php print $permalink ?></span>
+        <small class="text-muted"><?php print $date ?></small>
+
+        <?php if (!$top_post): ?>
+          <?php if (!empty($new)): ?>
+            <a id="new"><span class="new">(<?php print $new ?>)</span></a>
+          <?php endif; ?>
+
+          <?php if (!empty($first_new)) print $first_new ?>
+          <?php if (!empty($new_output)) print $new_output ?>
         <?php endif; ?>
+
+        <?php if (!empty($in_reply_to)) print $in_reply_to ?>
+
+        <?php if (!$node->status) print t("Unpublished post") ?>
 
         <?php
           // We hide the comments and links now so that we can render them later.
@@ -84,11 +73,11 @@
         <?php endif; ?>
       </div>
     </div>
-  </div>
 
-  <div class="panel-footer text-right">
-    <?php print render($content['links']); ?>
+    <div class="text-right">
+      <?php print render($content['links']) ?>
+    </div>
   </div>
 </div>
 
-<?php print render($content['comments']); ?>
+<?php print render($content['comments']) ?>
