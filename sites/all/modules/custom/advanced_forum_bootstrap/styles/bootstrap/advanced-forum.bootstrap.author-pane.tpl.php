@@ -26,9 +26,7 @@
       </div>
 
       <?php /* User picture / avatar (has div in variable) */ ?>
-      <?php if (!empty($picture)): ?>
-        <?php print $picture; ?>
-      <?php endif; ?>
+      <?php if (!empty($picture)) print $picture ?>
 
       <?php /* Online status */ ?>
       <?php if (!empty($online_status)): ?>
